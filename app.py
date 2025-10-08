@@ -36,13 +36,13 @@ if st.sidebar.button("🔄 Actualiser les données"):
 # --- Chargement des données ---
 df = load_data()
 
-st.header("🏙️ Notes de qualité de vie (Ville Idéale)")
+# st.header("🏙️ Notes de qualité de vie (Ville Idéale)")
 
-try:
-    df_villes = pd.read_csv("data/villes_scores.csv")
-    st.dataframe(df_villes, use_container_width=True)
-except FileNotFoundError:
-    st.warning("⚠️ Les données Ville Idéale ne sont pas encore disponibles. Cliquez sur Actualiser pour les générer.")
+# try:
+#     df_villes = pd.read_csv("data/villes_scores.csv")
+#     st.dataframe(df_villes, use_container_width=True)
+# except FileNotFoundError:
+#     st.warning("⚠️ Les données Ville Idéale ne sont pas encore disponibles. Cliquez sur Actualiser pour les générer.")
 
 
 try:
@@ -327,4 +327,5 @@ with tab3:
         "text/csv",
         key="download-csv"
     )
+
 
