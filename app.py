@@ -24,9 +24,9 @@ st.sidebar.markdown("### ⚙️ Actualisation des données")
 if st.sidebar.button("🔄 Actualiser les données"):
     with st.spinner("Scraping et nettoyage en cours... ⏳"):
         try:
-            subprocess.run(["python", "scraper_annonces.py"], check=True)
-            subprocess.run(["python", "scraper_ville_ideale.py"], check=True)  # ← اضافه شد
-            subprocess.run(["python", "cleaner.py"], check=True)
+            subprocess.run(["python", "scripts/scraper_annonces.py"], check=True)
+            subprocess.run(["python", "scripts/scraper_ville_ideale.py"], check=True)  # ← اضافه شد
+            subprocess.run(["python", "scripts/cleaner.py"], check=True)
             st.success("✅ Données mises à jour avec succès !")
         except Exception as e:
             st.error(f"❌ Erreur lors de la mise à jour : {e}")
@@ -327,5 +327,6 @@ with tab3:
         "text/csv",
         key="download-csv"
     )
+
 
 
