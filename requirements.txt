@@ -7,3 +7,10 @@ lru_cache
 quote
 pydeck
 tqdm
+streamlit
+pandas
+beautifulsoup4
+requests
+pydeck
+altair
+tqdm
