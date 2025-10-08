@@ -25,6 +25,7 @@ if st.sidebar.button("🔄 Actualiser les données"):
     with st.spinner("Scraping et nettoyage en cours... ⏳"):
         try:
             subprocess.run(["python", "scraper_annonces.py"], check=True)
+            subprocess.run(["python", "scraper_ville_ideale.py"], check=True)  # ← اضافه شد
             subprocess.run(["python", "cleaner.py"], check=True)
             st.success("✅ Données mises à jour avec succès !")
         except Exception as e:
@@ -35,6 +36,13 @@ if st.sidebar.button("🔄 Actualiser les données"):
 # --- Chargement des données ---
 df = load_data()
 
+st.header("🏙️ Notes de qualité de vie (Ville Idéale)")
+
+try:
+    df_villes = pd.read_csv("data/villes_scores.csv")
+    st.dataframe(df_villes, use_container_width=True)
+except FileNotFoundError:
+    st.warning("⚠️ Les données Ville Idéale ne sont pas encore disponibles. Cliquez sur Actualiser pour les générer.")
 
 
 try:
@@ -48,9 +56,6 @@ except:
 
 # 1. Charger les données
 df = pd.read_csv("data/cleaned_data.csv")
-
-st.set_page_config(page_title="Tableau de bord Streamlit", layout="wide")
-st.title("📊 Tableau de bord des annonces immobilières")
 
 # ---- Aperçu des données (head) ----
 st.write("Aperçu des données :")
@@ -322,3 +327,4 @@ with tab3:
         "text/csv",
         key="download-csv"
     )
+
