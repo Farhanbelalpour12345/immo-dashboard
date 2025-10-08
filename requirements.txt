@@ -1,0 +1,9 @@
+requests
+beautifulsoup4
+pandas
+streamlit
+altair
+lru_cache
+quote
+pydeck
+tqdm
